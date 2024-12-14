@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "fer.hr.rassus.lab1.grpc";
+
+package sensor;
+
+service SensorGrpcService {
+  rpc GetReading (ReadingRequest) returns (ReadingResponse) {}
+}
+
+message ReadingRequest {
+  int64 sensorId = 1;
+}
+
+message ReadingResponse {
+  double temperature = 1;
+  double pressure = 2;
+  double humidity = 3;
+  double co = 4;
+  double no2 = 5;
+  double so2 = 6;
+}
